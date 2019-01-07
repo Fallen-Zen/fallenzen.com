@@ -1,0 +1,14 @@
+<% @resumes.each do |resume| %>
+		<article>
+			<hgroup>
+				<h2><%= resume.name %></h2>
+				<h4><%= resume.company %></h4>
+			</hgroup>
+			<span>
+				<time datetime="<%= resume.from.to_formatted_s(:db) %>"><%= resume.from.strftime("%B %Y") %></time>
+				<span> - </span>
+				<% if resume.to? %><time datetime="<%= resume.to.to_formatted_s(:db) %>"><%= resume.to.strftime("%B %Y") %></time><% else %><span>Present</span><% end %>
+			</span>
+			<div><p><%= resume.description.html_safe() %></p></div>
+		</article>
+<% end %>

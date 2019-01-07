@@ -1,0 +1,15 @@
+<% @news.each do |news| %>
+	<article class="<% if news.created_at > 2.week.ago %>new<% end %>">
+		<h2><%= link_to news.title, news %></h2>
+		<p class="date">Posted on
+			<time datetime="<%= news.created_at.to_formatted_s(:db) %>"> <%= news.created_at.to_formatted_s(:long_ordinal) %> by Fallen Zen </time>
+		</p>
+		<% if news.attachment? %>
+		<figure><%= link_to image_tag(news.attachment.url(:thumb)), news.attachment.url, :target => '_blank' %>
+		<% if news.description? %><figcaption> <%= news.description %> </figcaption><% end %>
+		</figure>
+		<% end %>
+		<p><%= news.content.html_safe() %></p>
+	</article>
+<% end %>
+<%= will_paginate @news %>

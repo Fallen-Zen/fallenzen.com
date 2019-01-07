@@ -1,0 +1,12 @@
+				<article class="new">
+				  <h2><%= @news.title %></h2>
+				  <p class="date">Posted on
+				    <time datetime="<%= @news.created_at.to_formatted_s(:db) %>"> <%= @news.created_at.to_formatted_s(:long_ordinal) %> by Fallen Zen </time>
+				  </p>
+				  <% if @news.attachment? %>
+					  <figure><%= link_to image_tag(@news.attachment.url(:thumb)), @news.attachment.url, :target => '_blank' %>
+					  <% if @news.description? %><figcaption> <%= @news.description %> </figcaption><% end %>
+					  </figure>
+				  <% end %>
+				  <p><%= @news.content.html_safe() %></p>
+				</article>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="zen">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="objective-c, php, ruby, ruby on rails, c#, gog, cd projekt, cd projekt red, programmer, programming, programmer, games, apple, mac os x, iphone, ipad, xcode">
+<meta name="Description" content="Personal website of Piotr &#34;Fallen Zen&#34; Panasewicz, Software Engineer at GOG.com. Huge fan of Blizzard's games and Apple products. Amateur astronomer, music enthusiast and biker.">
+<meta property="og:image" content="https://www.fallenzen.com<%= image_path "avatar.jpg" %>" />
+<meta property="og:title" content="fallenzen.com - Piotr &#34;Fallen Zen&#34; Panasewicz" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.fallenzen.com" />
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:creator" content="@Fallen_Zen" />
+<meta property="twitter:url" content="https://www.fallenzen.com" />
+<meta property="twitter:title" content="fallenzen.com - Piotr &#34;Fallen Zen&#34; Panasewicz" />
+<meta property="twitter:description" content="Personal website of Piotr &#34;Fallen Zen&#34; Panasewicz, Software Engineer at GOG.com. Huge fan of Blizzard's games and Apple products. Amateur astronomer, music enthusiast and biker." />
+<meta property="twitter:image" content="https://www.fallenzen.com<%= image_path "avatar.jpg" %>" />
+<title>fallenzen.com - Piotr &#34;Fallen Zen&#34; Panasewicz</title>
+<%= auto_discovery_link_tag(:atom, "/feed", {:title => "fallenzen.com - News"}) %>
+<%= stylesheet_link_tag "application" %>
+<style type="text/css"><%= yield :stylesheets %></style>
+<%= javascript_include_tag "application" %>
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-1975154-10', 'auto');
+	ga('send', 'pageview');
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="bg_top"></div>
+	<div id="bg_bottom"></div>
+	<div id="wrapper2">
+		<div id="paralax">
+			<div id="planet1" data-type="solar_system" data-speed="3"></div>
+			<div id="sun" data-type="solar_system" data-speed="4"></div>
+			<div id="planet2" data-type="solar_system" data-speed="5"></div>
+		</div> <!-- /#paralax-->
+		<div id="page">
+			<header>
+				<h1><%= image_tag("logo.png", {:alt => "Fallen Zen"}) %></h1>
+				<nav>
+					<ul>
+						<li class="item1"><a href="/">Blog <span>of all thoughts</span></a></li>
+						<li class="item2"><a href="/work">Work <span>I've created</span></a></li>
+						<li class="item3"><a href="/resume">Resume <span>of experience</span></a></li>
+					</ul>
+				</nav>
+				<%= form_tag "/", :method => 'get', :id => "search" do %>
+					<p><%= text_field_tag :sf, "Search", :onblur => "search.blur();", :onfocus => "search.focus();" %></p>
+				<% end %>
+			</header>
+			<div id="container_wrapper">
+				<div id="container">
+					<div id="content_bg_repeat"></div>
+					<section id="leftcontent">
+						<%= yield %>
+					</section>
+					<aside>
+						<div id="about_me">
+							<h2>About me:</h2>
+							<img src="<%= image_path "me.jpg" %>" width="112" height="112" alt="Author" />
+							<p>I'm a software engineer based in Warsaw, Poland. Doing some awesome things at GOG.com (CD Projekt RED). Huge fan of Blizzard's games and Apple products. Amateur astronomer, music enthusiast and biker.</p>
+						</div>
+						<div id="contact">
+							<h2>Contact me:</h2>
+							<p>If you'd wish to contact me regarding this site, job opportunities or any other matter, please use the links below:</p>
+							<p>Find me: <a href="https://www.linkedin.com/profile/view?id=11220139">LinkedIn</a>, <a href="http://www.twitter.com/Fallen_Zen">Twitter</a></p>
+							<p>Mail me: <a href="#"><span id="my-email">please enable javascript to view</span></a></p>
+						</div>
+						<div id="tweets">
+							<h2>Tweets:</h2>
+							<%= render "layouts/tweets" %>
+						</div>
+					</aside>
+					<div class="clear"></div>
+				</div> <!-- /#container-->
+				<div id="content_bg_bottom"></div>
+			</div> <!-- /#container_wrapper-->
+		</div> <!-- /#page-->
+		<footer>Copyright © <%= Time.now.year %> <strong>Piotr &quot;Fallen Zen&quot; Panasewicz</strong></footer>
+	</div> <!-- /wrapper2-->
+</div> <!-- /#wrapper-->
+</body>
+</html>

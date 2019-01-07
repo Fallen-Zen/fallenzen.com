@@ -1,0 +1,471 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+@charset "utf-8";
+/* CSS Document
+
+***********************************************************************************************
+1. BASE
+1.1 Reset
+2. LAYOUT
+2.1 General styles
+2.2 Backgraound and layout
+2.3 Header
+2.4 Content 
+2.5. Footer 
+***********************************************************************************************/
+/*1. BASE
+1.1 Reset 
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+figure {
+	margin: 0;
+	padding: 0;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+fieldset,
+img {
+	border: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+th,
+var {
+	font-style: normal;
+	font-weight: normal;
+}
+ol,
+ul {
+	list-style: none;
+}
+caption,
+th {
+	text-align: left;
+}
+q:before,
+q:after {
+	content: '';
+}
+abbr,
+acronym {
+	border: 0;
+}
+a {
+	outline: 0;
+	text-decoration: none;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+/*2. LAYOUT
+2.1 General styles 
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+body {
+	font-family: sans-serif;
+	font-size: 15px;
+}
+.clear {
+	clear: both;
+}
+/*2. LAYOUT
+2.2 Backgraound and layout 
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+html,
+body {
+	height: 100%;
+}
+#wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+#wrapper2 {
+	width: 980px;
+	margin: 0 auto;
+	position: relative;
+}
+body {
+	background: #000 url(<%= asset_path 'stars_repeat.png' %>) 50% 0;
+	font-weight: normal;
+}
+#bg_top {
+	background: url(<%= asset_path 'stars_top.jpg' %>) no-repeat 50% 0;
+	position: absolute;
+	min-height: 1200px;
+	height: 50%;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+#bg_bottom {
+	background: url(<%= asset_path 'clouds_bottom.jpg' %>) no-repeat 50% 100%;
+	position: absolute;
+	height: 50%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-bottom: 100px;
+}
+#paralax {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	max-width: 100%;
+	max-height: 100%;
+}
+#sun {
+	width: 1025px;
+	height: 1287px;
+	background: url(<%= asset_path 'sun.png' %>) no-repeat;
+	z-index: 1;
+	position: absolute;
+	top: -375px;
+	left: -370px;
+}
+#planet1 {
+	background: url(<%= asset_path 'planet1.png' %>) no-repeat;
+	width: 569px;
+	height: 590px;
+	z-index: 1;
+	position: absolute;
+	left: -330px;
+}
+#planet2 {
+	width: 433px;
+	height: 446px;
+	background: url(<%= asset_path 'planet2.png' %>) no-repeat;
+	z-index: 1;
+	position: absolute;
+	top: 550px;
+	left: 910px;
+}
+#page {
+	z-index: 99;
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+}
+/*2.3 Header 
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+header {
+	height: 135px;
+	background: url(<%= asset_path 'menu_bg.png' %>) no-repeat 100% 100%;
+	position: relative;
+}
+header h1 {
+	padding-top: 80px;
+	position: relative;
+	left: -80px;
+}
+header nav {
+	position: absolute;
+	left: 245px;
+	bottom: 5px;
+	width: 600px;
+}
+header nav li {
+	float: left;
+	font-weight: 600;
+}
+header nav li a {
+	color: #b6aca3;
+	display: block;
+	padding: 15px 35px 15px 50px;
+	width: 70px;
+	background-repeat: no-repeat;
+	background-position: 12px 17px;
+	line-height: 100%;
+}
+header nav li a span {
+	display: block;
+	font-size: 12px;
+	font-weight: normal;
+	white-space: nowrap;
+}
+header nav li:hover {
+	background: url(<%= asset_path 'menu_highlight.png' %>) no-repeat 50% 100%;
+}
+header nav li a:hover {
+	color: #fff;
+}
+header nav .item1 a {
+	background-image: url(<%= asset_path 'blog_ico.png' %>);
+}
+header nav .item2 a {
+	background-image: url(<%= asset_path 'work_ico.png' %>);
+}
+header nav .item3 a {
+	background-image: url(<%= asset_path 'resume_ico.png' %>);
+}
+#search {
+	position: absolute;
+	right: 40px;
+	bottom: 10px;
+}
+#search input[type='text'] {
+	background: url(<%= asset_path 'search.png' %>) no-repeat 0 50%;
+	border: 0;
+	padding: 15px 30px 15px 35px;
+	width: 140px;
+	color: #a0b4ba;
+	font-size: 15px;
+	text-shadow: 1px 1px 3px #000;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+#search input[type='text']:focus {
+	outline-width: 0;
+}
+/*2.4 Content 
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+#container_wrapper {
+	box-shadow: 0px 0px 55px #000;
+	margin: 45px 0;
+	width: 948px;
+}
+#container {
+	background: url(<%= asset_path 'content_bg_top.png' %>) no-repeat 50% 0;
+	padding: 30px 0 0 0;
+	width: 948px;
+	position: relative;
+	min-height: 1200px;
+}
+#content_bg_bottom {
+	background: url(<%= asset_path 'content_bg_bottom.png' %>) no-repeat 50% 100%;
+	height: 122px;
+	clear: both;
+	width: 948px;
+}
+#content_bg_repeat {
+	position: absolute;
+	bottom: 0px;
+	top: 995px;
+	left: 0;
+	width: 948px;
+	background: url(<%= asset_path 'content_bg_repeat.png' %>) repeat-y 50% 0;
+}
+/*left side 
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+#leftcontent {
+	width: 517px;
+	padding-left: 45px;
+	position: relative;
+	float: left;
+	color: #ced1d2;
+}
+#leftcontent article {
+	margin-bottom: 30px;
+}
+#leftcontent h2 {
+	color: #ffbc1c;
+	font-size:24px;
+	font-weight: 400;
+	background: -webkit-gradient(linear, left top, left bottom, from(#d97626), to(#ffbc1c));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-decoration: none;
+	line-height:100%;
+	padding:5px 0;
+}
+#leftcontent p {
+	padding-bottom: 9px;
+	line-height: 130%;
+	font-weight: 300;
+	text-align: justify;
+}
+#leftcontent a {
+	color: #ffbc1c;
+	text-decoration: none;
+	background: -webkit-gradient(linear, left top, left bottom, from(#d97626), to(#ffbc1c));
+	-webkit-background-clip: text;
+}
+#leftcontent figure {
+	margin: 15px 0;
+	text-align: center;
+}
+#leftcontent hgroup {
+	padding-bottom: 15px;
+}
+#leftcontent figcaption {
+	font-size: 13px;
+	color: #82888a;
+	text-align: center;
+	padding: 5px;
+	font-weight: 300
+}
+#leftcontent img {
+	box-shadow: 0px 0px 25px #000;
+}
+#leftcontent .date {
+	color: #795a2a;
+	font-size: 12px;
+	text-shadow: none;
+}
+#leftcontent figure.multibox {
+	margin: 20px 0;
+	box-shadow: 0px 0px 25px #2c4f5d;
+	text-align: center;
+	border-radius: 5px;
+}
+.multibox .inner {
+	box-shadow: inset 0px 0px 15px #031012;
+	padding: 10px 8px 6px 8px;
+	border-radius: 5px;
+	border-bottom: 1px solid #203337;
+}
+.multibox img {
+	box-shadow: none;
+	margin: 7px;
+}
+#leftcontent .new h2 {
+	background: url(<%= asset_path 'new.png' %>) no-repeat 0 50%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#d97626), to(#ffbc1c));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	padding-left: 58px;
+	margin-left: -58px;
+}
+/*right sidebar 
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+aside {
+	width: 260px;
+	padding-right: 38px;
+	float: right;
+	font-size: 14px;
+	color: #b6b7b7;
+	position: relative;
+}
+aside a {
+	color: #5c99a8;
+	text-decoration: underline;
+}
+aside div {
+	margin-bottom: 25px;
+}
+aside h2 {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #7ebac8;
+	padding: 6px 8px 8px 25px;
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+}
+aside p {
+	text-shadow: 1px 1px 1px #000;
+	padding-bottom: 6px;
+	line-height: 130%;
+	font-weight: 300
+}
+#about_me img {
+	float: right;
+	margin: -22px 0 10px 30px;
+	box-shadow: 0px 0px 8px #68dffd;
+}
+#about_me h2 {
+	background-image: url(<%= asset_path 'about_ico.png' %>);
+}
+#contact h2 {
+	background-image: url(<%= asset_path 'contact_ico.png' %>);
+}
+#tweets h2 {
+	background-image: url(<%= asset_path 'tweet_ico.png' %>);
+}
+#tweets ul {
+	padding: 3px 1px;
+}
+#tweets li {
+	background: url(<%= asset_path 'border.png' %>) repeat-x 0 0;
+	padding: 10px 0;
+	color: #8491a0;
+	line-height: 130%;
+	font-weight: 300
+}
+#tweets li:last-child {
+	opacity: 0.4;
+}
+#tweets li span {
+	display: inline-block;
+	background: url(<%= asset_path 'bullet.png' %>) no-repeat 0 50%;
+	padding-left: 28px;
+	color: #becbde;
+}
+/*2.5. Footer 
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+footer {
+	color: #133452;
+	text-align: center;
+	height: 25px;
+	clear: both;
+	z-index: 2;
+	position: relative;
+	padding-top: 150px;
+	font-size: 13px;
+}

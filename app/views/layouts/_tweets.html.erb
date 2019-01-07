@@ -1,0 +1,23 @@
+<%
+begin
+	client = Twitter::REST::Client.new do |config|
+		config.consumer_key = "sj2d5Z7CIwoC69t3d64zVQ"
+		config.consumer_secret = "OII5cyfxX9qjcjxSFW47IG6tKVu1JOhpsEKcjidI"
+		config.access_token = "15480190-CBXGJ0kYzjqH37pwLAqyc4nKZ7EbpwLkvDCefsIFL"
+		config.access_token_secret = "CB8UWBuhBUbLBOqejq9nqb4dsiHShpoo4lJOGCR7gE4"
+	end
+	
+	tweets = client.user_timeline("Fallen_Zen", :count => 10)
+rescue Exception
+	tweets = nil
+end
+
+if tweets %>
+	<ul>
+	<% tweets.each do |tweet| %>
+		<li><span><%= tweet.user.screen_name %></span> <%= display_tweet_with_links(tweet.full_text).html_safe %></li>
+	<% end %>
+	</ul>
+<% else %>
+	<p>Unable to fetch tweets, please refresh.</p>
+<% end %>

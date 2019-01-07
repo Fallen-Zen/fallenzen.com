@@ -1,0 +1,9 @@
+<% @works.each do |work| %>
+			<article>
+			  <h2><%= work.name %></h2>
+			  <% if work.attachment? %>
+				  <figure><%= image_tag(work.attachment.url(:thumb)) %></figure>
+			  <% end %>
+			  <p><%= work.description.html_safe() %></p>
+			</article>
+<% end %>
